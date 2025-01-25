@@ -1,0 +1,9 @@
+{
+  "version": 2,
+  "public": "./",
+  "rewrites": [
+    { "source": "/", "destination": "/index.html" },
+    { "source": "/form", "destination": "/form.html" },
+    { "source": "/profile", "destination": "/profile.html" }
+  ]
+}

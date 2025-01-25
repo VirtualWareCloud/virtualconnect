@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Profile</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="form-container">
+        <h2>Create Your Profile</h2>
+        <form action="/create-profile" method="post" enctype="multipart/form-data">
+            <label for="headshot">Headshot Image</label>
+            <input type="file" name="headshot" required>
+            <label for="name">Name</label>
+            <input type="text" name="name" required>
+            <label for="email">Email</label>
+            <input type="email" name="email" required>
+            <label for="phone">Phone</label>
+            <input type="text" name="phone" required>
+            <label for="website">Website</label>
+            <input type="url" name="website" required>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

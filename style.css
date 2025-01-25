@@ -1,0 +1,60 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.profile-card, .form-container {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    max-width: 300px;
+    width: 100%;
+}
+
+.profile-img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+h1 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.buttons .btn {
+    display: block;
+    margin: 10px 0;
+    padding: 10px;
+    background: #007BFF;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.buttons .btn:hover {
+    background: #0056b3;
+}
+
+form label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+form input, form button {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}

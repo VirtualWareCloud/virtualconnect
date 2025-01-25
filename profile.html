@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ user.name }}'s Profile</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="profile-card">
+        <img src="{{ user.headshot }}" alt="{{ user.name }}" class="profile-img">
+        <h1>{{ user.name }}</h1>
+        <div class="buttons">
+            <a href="https://wa.me/{{ user.phone }}" class="btn">WhatsApp Me</a>
+            <a href="mailto:{{ user.email }}" class="btn">Email Me</a>
+            <a href="{{ user.website }}" target="_blank" class="btn">My Website</a>
+        </div>
+    </div>
+</body>
+</html>

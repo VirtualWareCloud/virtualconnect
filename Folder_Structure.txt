@@ -1,0 +1,15 @@
+/virtualconnect
+  /profiles (this will hold user-specific folders)
+    /Thabo_Phaahla
+      headshot.jpg
+      profile.json
+  /static
+    /css
+      style.css
+  /templates
+    index.html
+    form.html
+    profile.html
+  app.py
+  Profiles.csv
+
