@@ -60,7 +60,6 @@
         <h2>Your Desires</h2>
 
         <form id="questionnaire">
-            <!-- Question 1 -->
             <label for="q1">What are you looking for?</label>
             <select id="q1" onchange="togglePaidOptions()">
                 <option value="">Select an option</option>
@@ -70,7 +69,6 @@
                 <option value="Paid Sex">Paid Sex</option>
             </select>
 
-            <!-- Question 2 -->
             <label for="q2">How do you want to meet?</label>
             <select id="q2">
                 <option value="">Select an option</option>
@@ -80,7 +78,6 @@
                 <option value="Hotel">Hotel</option>
             </select>
 
-            <!-- Question 3 -->
             <label for="q3">Which of the below do you fall under?</label>
             <select id="q3">
                 <option value="">Select an option</option>
@@ -88,7 +85,6 @@
                 <option value="I require assistance with transport(Uber/Bolt)">I require assistance with transport(Uber/Bolt)</option>
             </select>
 
-            <!-- Question 4 -->
             <label for="q4">Which area are you in?</label>
             <select id="q4">
                 <option value="">Select an option</option>
@@ -110,7 +106,6 @@
                 <option value="Limpopo">Limpopo</option>
             </select>
 
-            <!-- Question 5 (Paid Sex Option) -->
             <div id="paidSexOptions" class="hidden">
                 <label for="q5">If your response to question 1 was 'Paid Sex' then choose one of the below:</label>
                 <select id="q5">
@@ -122,7 +117,6 @@
                 </select>
             </div>
 
-            <!-- Question 6 -->
             <label for="q6">When are you free to meet?</label>
             <select id="q6">
                 <option value="">Select an option</option>
@@ -143,14 +137,20 @@
         }
 
         function sendToWhatsApp() {
-            var message = "Here are my answers:
-";
+            var message = "Here are my answers:\n";
             document.querySelectorAll("select").forEach(select => {
                 message += select.previousElementSibling.textContent + " " + select.value + "\n";
             });
 
             var whatsappUrl = "https://wa.me/27696251390?text=" + encodeURIComponent(message);
-            window.open(whatsappUrl, "_blank");
+
+            // Open WhatsApp link in a new tab
+            var newWindow = window.open(whatsappUrl, "_blank");
+
+            // If popup is blocked, show a manual link
+            if (!newWindow || newWindow.closed || typeof newWindow.closed == 'undefined') {
+                alert("Popup blocked! Click the link below to send manually:\n" + whatsappUrl);
+            }
         }
     </script>
 
