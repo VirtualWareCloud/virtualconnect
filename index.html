@@ -96,4 +96,84 @@
                 <option value="Pta South">Pta South</option>
                 <option value="Pta West">Pta West</option>
                 <option value="Pta East">Pta East</option>
-                
+                <option value="Vaal">Vaal</option>
+                <option value="Northwest">Northwest</option>
+                <option value="KZN">KZN</option>
+                <option value="Eastern Cape">Eastern Cape</option>
+                <option value="Western Cape">Western Cape</option>
+                <option value="Northern Cape">Northern Cape</option>
+                <option value="Mpumalanga">Mpumalanga</option>
+                <option value="Limpopo">Limpopo</option>
+            </select>
+
+            <div id="paidSexOptions" class="hidden">
+                <label for="q5">If your response to question 1 was 'Paid Sex' then choose one of the below:</label>
+                <select id="q5">
+<option value="R350 per hour (I host)">R350 per hour (I host)</option>
+<option value="R350 per hour (I don't host)">R350 per hour (I don't host)</option>
+<option value="R400 per hour (I host)">R400 per hour (I host)</option>
+<option value="R450 per hour (I don't host)">R450 per hour (I don't host)</option>
+<option value="R500 per hour (I host)">R500 per hour (I host)</option>
+<option value="R550 per hour (I don't host)">R550 per hour (I don't host)</option>
+<option value="R600 per hour (I host)">R600 per hour (I host)</option>
+<option value="R650 per hour (I don't host)">R650 per hour (I don't host)</option>
+<option value="R700 per hour (I host)">R700 per hour (I host)</option>
+<option value="R750 per hour (I don't host)">R750 per hour (I don't host)</option>
+<option value="R800 per hour (I host)">R800 per hour (I host)</option>
+<option value="R850 per hour (I don't host)">R850 per hour (I don't host)</option>
+<option value="R900 per hour (I host)">R900 per hour (I host)</option>
+<option value="R950 per hour (I don't host)">R950 per hour (I don't host)</option>
+<option value="R1000 per hour (I host)">R1000 per hour (I host)</option>
+<option value="R1200 per hour (I don't host, I transport myself)">R1200 per hour (I don't host, I transport myself)</option>
+<option value="R1300 per hour (I don't host, I transport myself)">R1300 per hour (I don't host, I transport myself)</option>
+<option value="R1400 per hour (I don't host, I transport myself)">R1400 per hour (I don't host, I transport myself)</option>
+<option value="R1500 per hour (I don't host, I transport myself)">R1500 per hour (I don't host, I transport myself)</option>
+<option value="R1600 per hour (I don't host, I transport myself)">R1600 per hour (I don't host, I transport myself)</option>
+<option value="R1700 per hour (I don't host, I transport myself)">R1700 per hour (I don't host, I transport myself)</option>
+<option value="R1800 per hour (I don't host, I transport myself)">R1800 per hour (I don't host, I transport myself)</option>
+<option value="R1900 per hour (I don't host, I transport myself)">R1900 per hour (I don't host, I transport myself)</option>
+<option value="R2000 per hour (I don't host, I transport myself)">R2000 per hour (I don't host, I transport myself)</option>
+                </select>
+            </div>
+
+            <label for="q6">When are you free to meet?</label>
+            <select id="q6">
+                <option value="">Select an option</option>
+                <option value="Monday to Friday (8am to 5pm)">Monday to Friday (8am to 5pm)</option>
+                <option value="Monday to Friday (6pm to 6am)">Monday to Friday (6pm to 6am)</option>
+                <option value="Saturday (Free Anytime)">Saturday (Free Anytime)</option>
+            </select>
+
+            <button type="button" onclick="sendToWhatsApp()">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        function togglePaidOptions() {
+            var q1 = document.getElementById("q1").value;
+            var paidOptions = document.getElementById("paidSexOptions");
+            paidOptions.style.display = (q1 === "Paid Sex") ? "block" : "none";
+        }
+
+        function sendToWhatsApp() {
+            var message = "Here are my answers:\n";
+            document.querySelectorAll("select").forEach((select, index) => {
+                var question = select.previousElementSibling.textContent;
+                var answer = select.value;
+                message += "Question " + (index + 1) + ": " + question + "\n" + "Answer: " + answer + "\n\n";
+            });
+
+            var whatsappUrl = "https://wa.me/27696251390?text=" + encodeURIComponent(message);
+
+            // Open WhatsApp link in a new tab
+            var newWindow = window.open(whatsappUrl, "_blank");
+
+            // If popup is blocked, show a manual link
+            if (!newWindow || newWindow.closed || typeof newWindow.closed == 'undefined') {
+                alert("Popup blocked! Click the link below to send manually:\n" + whatsappUrl);
+            }
+        }
+    </script>
+
+</body>
+</html>
